@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+}
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.leftPanel, .rightPanel {
+  height: 100vh;
+}
+.leftPanel {
+  position: relative;
+  padding: 0 10px;
+}
+@media screen and (max-width: 688px) {
+  .App {
+    grid-template-columns: 1fr;
+  }
+  .rightPanel {
+    height: auto;
+  }
+}
+.rightPanel {
+  /* background: linear-gradient(135deg, grey, black); */
+  overflow: scroll;
+}
+.canvasContainer {
+  border: 20px ridge goldenrod;
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+#canvas {
+  vertical-align: top;
+  cursor: crosshair;
+  touch-action: none;
+}
+.colours {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 320px;
+  height: 40px;
+  border: 10px outset goldenrod;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.red, .blue, .green, .orange, .yellow, .purple, .black, .white {
+  cursor: pointer;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+.yellow {
+  background-color: yellow;
+}
+.green {
+  background-color: green;
+}
+.orange {
+  background-color: orange;
+}
+.purple {
+  background-color: purple;
+}
+.white {
+  background-color: white;
+}
+.black {
+  background-color: black;
+}
+.toolSizes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 118px;
+  height: 40px;
+  border: 10px outset goldenrod;
+  background-color: goldenrod;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.small, .medium, .large {
+  position: relative;
+  cursor: pointer;
+  background-color: goldenrod;
+}
+
+.small .example, .medium .example, .large .example {
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.small .example {
+  height: 3px;
+  width: 3px;
+}
+.medium .example {
+  height: 8px;
+  width: 8px;
+}
+.large .example {
+  height: 13px;
+  width: 13px;
+}
+.selected {
+  border: 5px inset goldenrod;
+}
+.selected.small, .selected.medium, .selected.large {
+  background: linear-gradient(DarkGoldenrod, goldenrod);
+}
+.submitButton {
+  text-align: center;
+  background: linear-gradient(135deg, blue, red);
+  color: white;
+  font-family: sans-serif;
+  padding: 20px 30px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  cursor: pointer;
+}
+.artGalleryContainer {
+  text-align: center;
+  padding: 5px;
+}
+.art {
+  vertical-align: top;
+  display: inline-block;
+  margin: 5px;
+}
