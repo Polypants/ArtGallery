@@ -125,7 +125,8 @@ class App extends React.Component {
       $('.colours > *').removeClass('selected');
       $(this).addClass('selected');
     });
-    $('#canvas').on('touchstart', function(e) {
+
+    $('#canvas').on('mousedown', function(e) {
       var mouseX = e.pageX - this.offsetLeft;
       var mouseY = e.pageY - this.offsetTop;
       mouseDown = true;
@@ -134,9 +135,11 @@ class App extends React.Component {
       c.beginPath();
       c.moveTo(mouseX, mouseY);
     });
-    $('#canvas').on('mousedown', function(e) {
-      var mouseX = e.pageX - this.offsetLeft;
-      var mouseY = e.pageY - this.offsetTop;
+    $('#canvas').on('touchstart', function(e) {
+      var pageX = e.originalEvent.touches[0].pageX;
+      var pageY = e.originalEvent.touches[0].pageY;
+      var mouseX = pageX - this.offsetLeft;
+      var mouseY = pageY - this.offsetTop;
       mouseDown = true;
       c.strokeStyle = colour;
       c.lineWidth = toolSize;
@@ -167,8 +170,10 @@ class App extends React.Component {
       }
     });
     $('#canvas').on('touchmove', function(e) {
-      var mouseX = e.pageX - this.offsetLeft;
-      var mouseY = e.pageY - this.offsetTop;
+      var pageX = e.originalEvent.touches[0].pageX;
+      var pageY = e.originalEvent.touches[0].pageY;
+      var mouseX = pageX - this.offsetLeft;
+      var mouseY = pageY - this.offsetTop;
       if (mouseDown) {
         c.lineTo(mouseX, mouseY);
         c.stroke();
