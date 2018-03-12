@@ -134,7 +134,7 @@ class App extends React.Component {
       c.beginPath();
       c.moveTo(mouseX, mouseY);
     });
-    $('#canvas').mousedown(function(e) {
+    $('#canvas').on('mousedown', function(e) {
       var mouseX = e.pageX - this.offsetLeft;
       var mouseY = e.pageY - this.offsetTop;
       mouseDown = true;
@@ -143,13 +143,30 @@ class App extends React.Component {
       c.beginPath();
       c.moveTo(mouseX, mouseY);
     });
-    $('#canvas').mouseup(function() {
+
+    $('#canvas').on('mouseup', function() {
       mouseDown = false;
     });
-    $('#canvas').mouseleave(function() {
+    $('#canvas').on('touchend', function() {
       mouseDown = false;
     });
-    $('#canvas').mousemove(function(e) {
+
+    $('#canvas').on('mouseleave', function() {
+      mouseDown = false;
+    });
+    $('#canvas').on('touchcancel', function() {
+      mouseDown = false;
+    });
+
+    $('#canvas').on('mousemove', function(e) {
+      var mouseX = e.pageX - this.offsetLeft;
+      var mouseY = e.pageY - this.offsetTop;
+      if (mouseDown) {
+        c.lineTo(mouseX, mouseY);
+        c.stroke();
+      }
+    });
+    $('#canvas').on('touchmove', function(e) {
       var mouseX = e.pageX - this.offsetLeft;
       var mouseY = e.pageY - this.offsetTop;
       if (mouseDown) {
