@@ -13,6 +13,11 @@ body {
   padding: 0 10px;
 }
 @media screen and (max-width: 688px) {
+  .rightPanel {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 688px) {
   .App {
     grid-template-columns: 1fr;
   }
@@ -126,6 +131,13 @@ body {
   transform: translateX(-50%);
   border-radius: 100px;
   cursor: pointer;
+}
+@media screen and (max-width: 688px) {
+  .submitButton {
+    position: static;
+    transform: translateX(0);
+    margin: 20px;
+  }
 }
 .artGalleryContainer {
   text-align: center;
