@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "13.7.0"
+  },
   "scripts": {
     "start": "babel-node server.js",
     "build": "webpack -wd",
